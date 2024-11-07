@@ -81,8 +81,6 @@ func (cfg *Config) Validate(path string) ([]string, error) {
 }
 
 func init() {
-	logger := logging.NewLogger("other")
-	logger.Error("registering other component")
 	resource.RegisterComponent(movementsensor.API, Model, resource.Registration[movementsensor.MovementSensor, *Config]{
 		Constructor: newWit,
 	})
