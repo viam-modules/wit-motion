@@ -27,8 +27,6 @@ import (
 var Model905 = resource.NewModel("viam", "wit-motion", "imu-wit-hwt905")
 
 func init() {
-	logger := logging.NewLogger("905")
-	logger.Error("registering 905 component")
 	resource.RegisterComponent(movementsensor.API, Model905, resource.Registration[movementsensor.MovementSensor, *Config]{
 		Constructor: newWit905,
 	})
