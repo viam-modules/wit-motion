@@ -1,14 +1,23 @@
 {
   "$schema": "https://dl.viam.dev/module.schema.json",
   "module_id": "viam:wit-motion",
-  "visibility": "private",
-  "url": "",
-  "description": "",
+  "visibility": "public",
+  "url": "https://github.com/viam-modules/wit-motion",
+  "description": "Go module for wit-motion imu-wit and imu-wit-hwt905 movement sensors, compatible with Viam",
   "models": [
     {
-      "api": "",
-      "model": ""
+      "api": "rdk:component:movement_sensor",
+      "model": "viam:wit-motion:imu-wit"
+    },
+    {
+      "api": "rdk:component:movement_sensor",
+      "model": "viam:wit-motion:imu-wit-hwt905"
     }
   ],
-  "entrypoint": ""
+  "build": {
+    "build": "make module",
+    "path": "bin/module.tar.gz",
+    "arch" : ["linux/arm64", "linux/amd64", "darwin/arm64"]
+  },
+  "entrypoint": "bin/wit-motion"
 }
