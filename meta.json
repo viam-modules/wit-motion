@@ -3,7 +3,7 @@
   "module_id": "viam:wit-motion",
   "visibility": "public",
   "url": "https://github.com/viam-modules/wit-motion",
-  "description": "Go module for wit-motion imu-wit and imu-wit-hwt905 movement sensors, compatible with Viam. Note: the imu-wit model is NOT supported on darwin/arm64",
+  "description": "Go module for wit-motion imu-wit and imu-wit-hwt905 movement sensors, compatible with Viam",
   "models": [
     {
       "api": "rdk:component:movement_sensor",
@@ -17,7 +17,7 @@
   "build": {
     "build": "make module",
     "path": "bin/module.tar.gz",
-    "arch" : ["linux/arm64", "linux/amd64", "darwin/arm64"]
+    "arch" : ["linux/arm64", "linux/amd64"]
   },
   "entrypoint": "bin/wit-motion"
 }
