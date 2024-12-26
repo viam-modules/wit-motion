@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 
-	"wit-motion/imuwit"
+	"github.com/viam-modules/wit-motion/imuwit"
 
 	"go.viam.com/rdk/components/movementsensor"
 	"go.viam.com/rdk/logging"
