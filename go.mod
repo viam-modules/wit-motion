@@ -1,4 +1,4 @@
-module wit-motion
+module github.com/viam-modules/wit-motion
 
 go 1.23.0
 
