@@ -40,9 +40,9 @@ The following attributes are available for `viam:wit-motion:imu-wit` movement_se
 | `serial_path` | string | **Required** | The full filesystem path to the serial device, starting with `/dev/ |
 | `serial_baud_rate` | int | Optional | The rate at which data is sent from the sensor over the serial connection. Valid rates are `9600` and `115200`. The default rate will work for all models. _Only the HWT901B can have a different serial baud rate._ Refer to your model's data sheet. Default: `115200` |
 
-## Example configuration
+### Example Configuration
 
-### `viam:wit-motion:imu-wit`
+#### `viam:wit-motion:imu-wit`
 
 ```json
   {
@@ -51,7 +51,7 @@ The following attributes are available for `viam:wit-motion:imu-wit` movement_se
   }
 ```
 
-### `viam:wit-motion:imu-wit-hwt905`
+#### `viam:wit-motion:imu-wit-hwt905`
 
 ```json
   {
