@@ -13,13 +13,10 @@ Other WitMotion IMUs that communicate over serial may also work with this model 
 
 ## Configure your imu-wit movement_sensor
 
-> [!NOTE]
-> Before configuring your movement_sensor, you must [create a machine](https://docs.viam.com/cloud/machines/#add-a-new-machine).
+To configure a wit-motion movement sensor, you must set the serial path. To find your serial device path, first connect the serial device to your machine:
 
-Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [machine](https://docs.viam.com/fleet/machines/) in the [Viam app](https://app.viam.com/).
-[Add movement_sensor / wit-motion:imu-wit to your machine](https://docs.viam.com/configure/#components).
-
-On the new component panel, copy and paste the following attribute template into your movement_sensor's attributes field:
+- On Linux, run `ls /dev/serial/by-path/` to show connected serial devices, or look for your device in the output of `sudo dmesg | grep tty`. Example: `"/dev/serial/by-path/usb-0:1.1:1.0"`.
+- On macOS, run `ls /dev/tty* | grep -i usb` to show connected USB serial devices, `ls /dev/tty*` to browse all devices, or look for your device in the output of `sudo dmesg | grep tty`. Example: `"/dev/ttyS0"`.
 
 ```json
 {
@@ -34,42 +31,31 @@ The following attributes are available for `viam:wit-motion:imu-wit` movement_se
 
 | Attribute | Type | Required? | Description |
 | --------- | ---- | --------- | ----------  |
-| `serial_path` | string | **Required** | The full filesystem path to the serial device, starting with <file>/dev/</file>. To find your serial device path, first connect the serial device to your machine, then:<ul><li>On Linux, run <code>ls /dev/serial/by-path/\*</code> to show connected serial devices, or look for your device in the output of <code>sudo dmesg \| grep tty</code>. Example: <code>"/dev/serial/by-path/usb-0:1.1:1.0"</code>.</li><li>On macOS, run <code>ls /dev/tty\* \| grep -i usb</code> to show connected USB serial devices, <code>ls /dev/tty\*</code> to browse all devices, or look for your device in the output of <code>sudo dmesg \| grep tty</code>. Example: <code>"/dev/ttyS0"</code>.</li></ul> |
-| `serial_baud_rate` | int | Optional | The rate at which data is sent from the sensor over the serial connection. Valid rates are `9600` and `115200`. The default rate will work for all models. _Only the HWT901B can have a different serial baud rate._ Refer to your model's data sheet. <br>Default: `115200` |
+| `serial_path` | string | **Required** | The full filesystem path to the serial device, starting with `/dev/ |
+| `serial_baud_rate` | int | Optional | The rate at which data is sent from the sensor over the serial connection. Valid rates are `9600` and `115200`. The default rate will work for all models. _Only the HWT901B can have a different serial baud rate._ Refer to your model's data sheet. Default: `115200` |
 
 ## Example configuration
 
 ### `viam:wit-motion:imu-wit`
+
 ```json
   {
-      "name": "<your-wit-motion-imu-wit-movementsensor-name>",
-      "model": "viam:wit-motion:imu-wit",
-      "type": "movement_sensor",
-      "namespace": "rdk",
-      "attributes": {
-          "serial_path": "/dev/serial/by-path/usb-0:1.1:1.0",
-          "serial_baud_rate": 115200
-      },
-      "depends_on": []
+    "serial_path": "/dev/serial/by-path/usb-0:1.1:1.0",
+    "serial_baud_rate": 115200
   }
 ```
 
 ### `viam:wit-motion:imu-wit-hwt905`
+
 ```json
   {
-      "name": "<your-wit-motion-imu-wit-hwt905-movementsensor-name>",
-      "model": "viam:wit-motion:imu-wit-hwt905",
-      "type": "movement_sensor",
-      "namespace": "rdk",
-      "attributes": {
-          "serial_path": "/dev/serial/by-path/usb-0:1.1:1.0",
-          "serial_baud_rate": 115200
-      },
-      "depends_on": []
+    "serial_path": "/dev/serial/by-path/usb-0:1.1:1.0",
+    "serial_baud_rate": 115200
   }
 ```
 
 ### Next Steps
+
 - To test your movement_sensor, expand the **TEST** section of its configuration pane or go to the [**CONTROL** tab](https://docs.viam.com/fleet/control/).
 - To write code against your movement_sensor, use one of the [available SDKs](https://docs.viam.com/sdks/).
 - To view examples using a movement_sensor component, explore [these tutorials](https://docs.viam.com/tutorials/).

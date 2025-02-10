@@ -7,11 +7,15 @@
   "models": [
     {
       "api": "rdk:component:movement_sensor",
-      "model": "viam:wit-motion:imu-wit"
+      "model": "viam:wit-motion:imu-wit",
+      "short_description": "generic wit-motion multi axis tilt sensors",
+      "markdown_link": "README.md#configure-your-imu-wit-movement_sensor"
     },
     {
       "api": "rdk:component:movement_sensor",
-      "model": "viam:wit-motion:imu-wit-hwt905"
+      "model": "viam:wit-motion:imu-wit-hwt905",
+      "short_description": "the hwt905 wit-motion multi axis tilt sensor",
+      "markdown_link": "README.md#configure-your-imu-wit-movement_sensor"
     }
   ],
   "build": {
