@@ -11,6 +11,12 @@ The `imu-wit-hwt905` movement sensor model supports the [HWT905-TTL IMU](https:/
 
 Other WitMotion IMUs that communicate over serial may also work with this model but have not been tested.
 
+> [!NOTE]
+> Before configuring your movement_sensor, you must [create a machine](https://docs.viam.com/cloud/machines/#add-a-new-machine).
+
+Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [machine](https://docs.viam.com/fleet/machines/) in the [Viam app](https://app.viam.com/).
+[Add movement_sensor / wit-motion:imu-wit to your machine](https://docs.viam.com/configure/#components).
+
 ## Configure your imu-wit movement_sensor
 
 To configure a wit-motion movement sensor, you must set the serial path. To find your serial device path, first connect the serial device to your machine:
