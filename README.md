@@ -21,7 +21,7 @@ Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [m
 
 To configure a wit-motion movement sensor, you must set the serial path. To find your serial device path, first connect the serial device to your machine:
 
-- On Linux, run `ls /dev/serial/by-path/` to show connected serial devices, or look for your device in the output of `sudo dmesg | grep tty`. Example: `"/dev/serial/by-path/usb-0:1.1:1.0"`.
+- On Linux, run `find /dev/serial/by-path/` to show connected serial devices, or look for your device in the output of `sudo dmesg | grep tty`. Use the device including the path to the device. Example: `"/dev/serial/by-path/usb-0:1.1:1.0"`.
 - On macOS, run `ls /dev/tty* | grep -i usb` to show connected USB serial devices, `ls /dev/tty*` to browse all devices, or look for your device in the output of `sudo dmesg | grep tty`. Example: `"/dev/ttyS0"`.
 
 ```json
