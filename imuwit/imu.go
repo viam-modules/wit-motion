@@ -66,18 +66,18 @@ type Config struct {
 }
 
 // Validate ensures all parts of the config are valid.
-func (cfg *Config) Validate(path string) ([]string, error) {
+func (cfg *Config) Validate(path string) ([]string, []string, error) {
 	// Validating serial path
 	if cfg.Port == "" {
-		return nil, resource.NewConfigValidationFieldRequiredError(path, "serial_path")
+		return nil, nil, resource.NewConfigValidationFieldRequiredError(path, "serial_path")
 	}
 
 	// Validating baud rate
 	if !rutils.ValidateBaudRate(baudRateList, int(cfg.BaudRate)) {
-		return nil, resource.NewConfigValidationError(path, errors.Errorf("Baud rate is not in %v", baudRateList))
+		return nil, nil, resource.NewConfigValidationError(path, errors.Errorf("Baud rate is not in %v", baudRateList))
 	}
 
-	return nil, nil
+	return nil, nil, nil
 }
 
 func init() {
