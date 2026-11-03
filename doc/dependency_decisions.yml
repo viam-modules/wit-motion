@@ -37,27 +37,12 @@
     :versions: []
     :when: 2022-08-15 14:34:00.115389050 Z
 - - :license
-  - github.com/go-fonts/liberation
-  - New BSD
-  - :who:
-    :license_links: https://github.com/go-fonts/liberation/blob/0c2fdab5e932afd0923f4f71ae23691a66305ef6/LICENSE
-    :versions: []
-    :when: 2022-08-15 14:47:01.153930427 Z
-- - :license
   - github.com/go-gl/mathgl
   - New BSD
   - :who:
     :license_links: https://github.com/go-gl/mathgl/blob/45f44e1fbc36e29eb200186c5fd63828a2ffc540/LICENSE
     :versions: []
     :when: 2022-08-15 14:51:09.537862545 Z
-- - :license
-  - github.com/go-latex/latex
-  - New BSD
-  - :who:
-    :why: 'TODO(RSDK-583): why is license finder unable to detect this license automatically?'
-    :license_links: https://github.com/go-latex/latex/blob/c0d11ff05a81a63afdffbba6e577b2a3a6e69c85/LICENSE
-    :versions: []
-    :when: 2022-08-15 14:55:14.011453253 Z
 - - :license
   - github.com/improbable-eng/grpc-web
   - Apache License 2.0
