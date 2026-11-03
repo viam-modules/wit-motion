@@ -223,3 +223,39 @@
     :why:
     :versions: []
     :when: 2024-12-03 20:21:04.946556000 Z
+- - :permit
+  - Mozilla Public License 2.0
+  - :who:
+    :why: Weak file-level copyleft; OK for unmodified transitive deps (via go.viam.com/rdk)
+    :versions: []
+    :when: 2026-11-03 23:12:55.791593000 Z
+- - :license
+  - github.com/hashicorp/go-getter
+  - Mozilla Public License 2.0
+  - :who:
+    :why: License file starts with a copyright line, so license_finder can't detect
+      it
+    :versions: []
+    :when: 2026-11-03 23:12:56.031319000 Z
+- - :license
+  - github.com/hashicorp/go-version
+  - Mozilla Public License 2.0
+  - :who:
+    :why: License file starts with a copyright line, so license_finder can't detect
+      it
+    :versions: []
+    :when: 2026-11-03 23:12:56.236833000 Z
+- - :license
+  - codeberg.org/go-fonts/liberation
+  - New BSD
+  - :who:
+    :why: Moved from github.com/go-fonts/liberation
+    :versions: []
+    :when: 2026-11-03 23:12:56.437805000 Z
+- - :license
+  - codeberg.org/go-latex/latex
+  - New BSD
+  - :who:
+    :why: Moved from github.com/go-latex/latex
+    :versions: []
+    :when: 2026-11-03 23:12:56.642106000 Z
