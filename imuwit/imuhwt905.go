@@ -1,4 +1,3 @@
-// Package imuwit implements wit imu
 package imuwit
 
 /*
