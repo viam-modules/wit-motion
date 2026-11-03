@@ -36,13 +36,12 @@ import (
 	slib "github.com/jacobsa/go-serial/serial"
 	geo "github.com/kellydunn/golang-geo"
 	"github.com/pkg/errors"
-	"go.viam.com/utils"
-
 	"go.viam.com/rdk/components/movementsensor"
 	"go.viam.com/rdk/logging"
 	"go.viam.com/rdk/resource"
 	"go.viam.com/rdk/spatialmath"
 	rutils "go.viam.com/rdk/utils"
+	"go.viam.com/utils"
 )
 
 var (
@@ -121,26 +120,26 @@ func (imu *wit) Reconfigure(ctx context.Context, deps resource.Dependencies, con
 	return nil
 }
 
-func (imu *wit) AngularVelocity(ctx context.Context, extra map[string]interface{}) (spatialmath.AngularVelocity, error) {
+func (imu *wit) AngularVelocity(ctx context.Context, extra map[string]any) (spatialmath.AngularVelocity, error) {
 	imu.mu.Lock()
 	defer imu.mu.Unlock()
 	return imu.angularVelocity, imu.err.Get()
 }
 
-func (imu *wit) LinearVelocity(ctx context.Context, extra map[string]interface{}) (r3.Vector, error) {
+func (imu *wit) LinearVelocity(ctx context.Context, extra map[string]any) (r3.Vector, error) {
 	imu.mu.Lock()
 	defer imu.mu.Unlock()
 	return r3.Vector{}, movementsensor.ErrMethodUnimplementedLinearVelocity
 }
 
-func (imu *wit) Orientation(ctx context.Context, extra map[string]interface{}) (spatialmath.Orientation, error) {
+func (imu *wit) Orientation(ctx context.Context, extra map[string]any) (spatialmath.Orientation, error) {
 	imu.mu.Lock()
 	defer imu.mu.Unlock()
 	return &imu.orientation, imu.err.Get()
 }
 
 // LinearAcceleration returns linear acceleration in mm_per_sec_per_sec.
-func (imu *wit) LinearAcceleration(ctx context.Context, extra map[string]interface{}) (r3.Vector, error) {
+func (imu *wit) LinearAcceleration(ctx context.Context, extra map[string]any) (r3.Vector, error) {
 	imu.mu.Lock()
 	defer imu.mu.Unlock()
 	return imu.acceleration, imu.err.Get()
@@ -153,7 +152,7 @@ func (imu *wit) getMagnetometer() (r3.Vector, error) {
 	return imu.magnetometer, imu.err.Get()
 }
 
-func (imu *wit) CompassHeading(ctx context.Context, extra map[string]interface{}) (float64, error) {
+func (imu *wit) CompassHeading(ctx context.Context, extra map[string]any) (float64, error) {
 	var err error
 
 	imu.mu.Lock()
@@ -201,11 +200,11 @@ func (imu *wit) calculateTiltCompensation(roll, pitch float64) (float64, float64
 	return xComp, yComp
 }
 
-func (imu *wit) Position(ctx context.Context, extra map[string]interface{}) (*geo.Point, float64, error) {
+func (imu *wit) Position(ctx context.Context, extra map[string]any) (*geo.Point, float64, error) {
 	return geo.NewPoint(0, 0), 0, movementsensor.ErrMethodUnimplementedPosition
 }
 
-func (imu *wit) Accuracy(ctx context.Context, extra map[string]interface{}) (*movementsensor.Accuracy, error,
+func (imu *wit) Accuracy(ctx context.Context, extra map[string]any) (*movementsensor.Accuracy, error,
 ) {
 	// return the compass heading error from the datasheet (0.5) of the witIMU if
 	// the pitch angle is less than 45 degrees and the roll angle is near zero
@@ -225,7 +224,7 @@ func (imu *wit) Accuracy(ctx context.Context, extra map[string]interface{}) (*mo
 	return &movementsensor.Accuracy{CompassDegreeError: float32(math.NaN())}, nil
 }
 
-func (imu *wit) Readings(ctx context.Context, extra map[string]interface{}) (map[string]interface{}, error) {
+func (imu *wit) Readings(ctx context.Context, extra map[string]any) (map[string]any, error) {
 	readings, err := movementsensor.DefaultAPIReadings(ctx, imu, extra)
 	if err != nil {
 		return nil, err
@@ -240,7 +239,7 @@ func (imu *wit) Readings(ctx context.Context, extra map[string]interface{}) (map
 	return readings, err
 }
 
-func (imu *wit) Properties(ctx context.Context, extra map[string]interface{}) (*movementsensor.Properties, error) {
+func (imu *wit) Properties(ctx context.Context, extra map[string]any) (*movementsensor.Properties, error) {
 	imu.mu.Lock()
 	defer imu.mu.Unlock()
 
